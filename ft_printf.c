@@ -41,6 +41,12 @@ int ft_printf(const char *format, ...)
 			ft_putnbr(s);
 			break;
 		}
+		else if (format[i] == '%' && format[i + 1] == 'u')
+		{
+			s = va_arg(args, int);
+			ft_putnbr_unsigned(s);
+			break;
+		}
 			
 		format++;
 	}
