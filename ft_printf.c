@@ -14,12 +14,14 @@
 
 int ft_printf(const char *format, ...)
 {
-	//va_list args;
 	int count;
 	int	i;
+	int s;
+	va_list args;
 
 	count = 0;
 	i = 0;
+	va_start(args, format);
 	while (format[i] != '\0')
 	{
 		if (format[i] != '%')
@@ -27,9 +29,15 @@ int ft_printf(const char *format, ...)
 			ft_putchar(format[i]);
 			count++;
 		}
+		else if (format[i] == '%' && format[i + 1] == 'c')
+		{
+			s = va_arg(args, int);
+			ft_putchar(s);
+			break;
+		}
+			
 		format++;
 	}
-	//va_start(args, format);
 	//va_end(format);
 	return (count);
 }
