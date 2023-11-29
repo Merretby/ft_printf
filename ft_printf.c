@@ -35,6 +35,12 @@ int ft_printf(const char *format, ...)
 			ft_putchar(s);
 			break;
 		}
+		else if (format[i] == '%' && (format[i + 1] == 'i' || format[i + 1] == 'd'))
+		{
+			s = va_arg(args, int);
+			ft_putnbr(s);
+			break;
+		}
 			
 		format++;
 	}
