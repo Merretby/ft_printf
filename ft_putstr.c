@@ -6,20 +6,26 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 05:02:39 by moer-ret          #+#    #+#             */
-/*   Updated: 2023/11/29 05:11:55 by moer-ret         ###   ########.fr       */
+/*   Updated: 2023/11/30 22:39:09 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putstr(char *str)
+int	ft_putstr(char *str)
 {
-	int	i;
+	int	count;
 
-	i = 0;
-	while (str[i])
+	count = 0;
+	if (!str)
 	{
-		write(1, &str[i], 1);
-		i++;
+		write(1, "(NULL)", 6);
+		return (6);
 	}
+	while (str[count])
+	{
+		write(1, &str[count], 1);
+		count++;
+	}
+	return (count);
 }

@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_pointer.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/29 02:50:44 by moer-ret          #+#    #+#             */
-/*   Updated: 2023/11/30 22:18:51 by moer-ret         ###   ########.fr       */
+/*   Created: 2023/11/30 20:06:38 by moer-ret          #+#    #+#             */
+/*   Updated: 2023/11/30 22:45:26 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putchar(char c)
+int	ft_pointer(unsigned long nb)
 {
-	write(1, &c, 1);
-	return (1);
+	int	count;
+	nb = 0;
+
+	count = 0;
+	return(count);
 }
