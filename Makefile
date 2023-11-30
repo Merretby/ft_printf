@@ -1,8 +1,8 @@
 NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-CFILES =ft_putchar.c ft_putnbr.c ft_putstr.c ft_putnbr_unsigned.c \
-	ft_printf.c 
+CFILES = ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c \
+	ft_putnbr_unsigned.c ft_putnbr_hex.c
 
 OFILSE = $(CFILES:.c=.o)
 
