@@ -57,6 +57,7 @@ int	ft_printf(const char *format, ...)
 			check(&format[i], args);
 			i++;
 		}
+		i++;
 	}
 	va_end(args);
 	return (count);
