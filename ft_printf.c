@@ -54,7 +54,7 @@ int	ft_printf(const char *format, ...)
 		}
 		else if (format[i] == '%')
 		{
-			check(&format[i], args);
+			count += check(&format[i], args);
 			i++;
 		}
 		i++;
