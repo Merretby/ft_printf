@@ -20,33 +20,19 @@ static	int	check(const char *format, va_list args)
 	i = 0;
 	count = 0;
 	if (format[i + 1] == 'c')
-	{
 		count += ft_putchar(va_arg(args, int));
-	}
 	else if (format[i + 1] == 'i' || format[i + 1] == 'd')
-	{
 		count += ft_putnbr(va_arg(args, long int));
-	}
 	else if (format[i + 1] == 'u')
-	{
 		count += ft_putnbr_unsigned(va_arg(args, unsigned int));
-	}
 	else if (format[i + 1] == 's')
-	{
 		count += ft_putstr(va_arg(args, char *));
-	}
 	else if (format[i + 1] == 'x' || format[i + 1] == 'X')
-	{
 		count += ft_puthex(va_arg(args, unsigned int), format[i + 1]);
-	}
 	else if (format [i + 1] == 'p')
-	{
 		count += ft_pointer (va_arg(args, unsigned long));
-	}
 	else if (format[i + 1] == '%')
-	{
 		ft_putchar('%');
-	}
 	return (count);
 }
 
@@ -69,8 +55,8 @@ int	ft_printf(const char *format, ...)
 		else if (format[i] == '%')
 		{
 			check(&format[i], args);
+			i++;
 		}
-		format++;
 	}
 	va_end(args);
 	return (count);
