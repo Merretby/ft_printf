@@ -6,11 +6,49 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 05:26:05 by moer-ret          #+#    #+#             */
-/*   Updated: 2023/11/30 22:55:59 by moer-ret         ###   ########.fr       */
+/*   Updated: 2023/12/01 03:06:56 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static	int	check(const char *format, va_list args)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	if (format[i + 1] == 'c')
+	{
+		count += ft_putchar(va_arg(args, int));
+	}
+	else if (format[i + 1] == 'i' || format[i + 1] == 'd')
+	{
+		count += ft_putnbr(va_arg(args, long int));
+	}
+	else if (format[i + 1] == 'u')
+	{
+		count += ft_putnbr_unsigned(va_arg(args, unsigned int));
+	}
+	else if (format[i + 1] == 's')
+	{
+		count += ft_putstr(va_arg(args, char *));
+	}
+	else if (format[i + 1] == 'x' || format[i + 1] == 'X')
+	{
+		count += ft_puthex(va_arg(args, unsigned int), format[i + 1]);
+	}
+	else if (format [i + 1] == 'p')
+	{
+		count += ft_pointer (va_arg(args, unsigned long));
+	}
+	else if (format[i + 1] == '%')
+	{
+		ft_putchar('%');
+	}
+	return (count);
+}
 
 int	ft_printf(const char *format, ...)
 {
@@ -30,41 +68,7 @@ int	ft_printf(const char *format, ...)
 		}
 		else if (format[i] == '%')
 		{
-			if (format[i + 1] == 'c')
-			{
-				i++;
-				count += ft_putchar(va_arg(args, int));
-			}
-			else if (format[i + 1] == 'i' || format[i + 1] == 'd')
-			{
-				i++;
-				count += ft_putnbr(va_arg(args, long int));
-			}
-			else if (format[i + 1] == 'u')
-			{
-				i++;
-				count += ft_putnbr_unsigned(va_arg(args, unsigned int));
-			}
-			else if (format[i + 1] == 's')
-			{
-				i++;
-				count += ft_putstr(va_arg(args, char *));
-			}
-			else if (format[i + 1] == 'x' || format[i + 1] == 'X')
-			{
-				i++;
-				count += ft_puthex(va_arg(args, unsigned int), format[i + 1]);
-			}
-			else if (format [i + 1] == 'p')
-			{
-				i++;
-				ft_putstr("0x");
-				count += ft_pointer (va_arg(args, unsigned long));
-			}
-			else if (format[i + 1] == '%')
-			{
-				ft_putchar('%');
-			}
+			check(&format[i], args);
 		}
 		format++;
 	}
@@ -74,7 +78,8 @@ int	ft_printf(const char *format, ...)
 // #include <stdio.h>
 // int main()
 // {
-// 	int a = 123;
-// 	printf("%d\n",a);
-//  	ft_printf("%d\n",a );
+// 	char s[] = "sfayga";
+// 	int d = 21;
+//  	ft_printf("1->hello my name %s im %i and may age in hex is %X and as a pointer is %p\n", s, d, d, &d);
+// 	printf("2->hello my name %s im %i and may age in hex is %X and as a pointer is %p\n", s, d, d, &d);
 // }
