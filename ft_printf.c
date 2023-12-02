@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 05:26:05 by moer-ret          #+#    #+#             */
-/*   Updated: 2023/12/01 04:16:33 by moer-ret         ###   ########.fr       */
+/*   Updated: 2023/12/02 04:25:52 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static	int	check(const char *format, va_list args)
 	if (format[i + 1] == 'c')
 		count += ft_putchar(va_arg(args, int));
 	else if (format[i + 1] == 'i' || format[i + 1] == 'd')
-		count += ft_putnbr(va_arg(args, long int));
+		count += ft_putnbr(va_arg(args, int));
 	else if (format[i + 1] == 'u')
 		count += ft_putnbr_unsigned(va_arg(args, unsigned int));
 	else if (format[i + 1] == 's')
@@ -32,7 +32,7 @@ static	int	check(const char *format, va_list args)
 	else if (format [i + 1] == 'p')
 		count += ft_pointer (va_arg(args, unsigned long));
 	else if (format[i + 1] == '%')
-		ft_putchar('%');
+		count += ft_putchar('%');
 	return (count);
 }
 
@@ -62,11 +62,11 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
+
 // #include <stdio.h>
 // int main()
 // {
-// 	char s[] = "sfayga";
-// 	int d = 21;
-//  	ft_printf("1->hello my name %s im %i and may age in hex is %X and as a pointer is %p\n", s, d, d, &d);
-// 	printf("2->hello my name %s im %i and may age in hex is %X and as a pointer is %p\n", s, d, d, &d);
+// 	int b = printf("%d\n", INT_MIN);
+//  	int a = ft_printf("%d\n", INT_MIN);
+// 	printf("%d %d", a, b);
 // }

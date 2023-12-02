@@ -6,7 +6,7 @@
 /*   By: moer-ret <moer-ret@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 05:02:39 by moer-ret          #+#    #+#             */
-/*   Updated: 2023/11/30 22:39:09 by moer-ret         ###   ########.fr       */
+/*   Updated: 2023/12/02 00:02:38 by moer-ret         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_putstr(char *str)
 	count = 0;
 	if (!str)
 	{
-		write(1, "(NULL)", 6);
+		write(1, "(null)", 6);
 		return (6);
 	}
 	while (str[count])
